@@ -3,6 +3,7 @@ package pl.com.home.MyBatis.api;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +24,11 @@ public class DictUnitApi {
 	public List<DictUnit> getAll() {
 		System.out.println(mapper);
 		return mapper.findAll();
+	}
+
+	@GetMapping("/unit/{unit}")
+	public DictUnit getUnit(@PathVariable String unit) {
+		System.out.println(unit);
+		return mapper.findUnit(unit);
 	}
 }
